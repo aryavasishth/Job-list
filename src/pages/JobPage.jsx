@@ -137,8 +137,14 @@ const JobPage = ({deleteJob}) => {
   
 }
 const jobLoader=async({params})=>{
-    const res=await fetch(`/api/jobs/${params.id}`)
-    const data=await res.json()
-    return data
+      const response = await fetch(`https://gist.githubusercontent.com/aryavasishth/1c6fed37e3108b825a20bcd369ccff54/raw/bafd9d036c1ed43e56b41d587068654e43c9af1c/jobs.json/${params.id}`);
+  
+      // Check if the HTTP request was successful
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    
+      const data = await response.json();
+      return data;
 }
 export {JobPage as default, jobLoader}

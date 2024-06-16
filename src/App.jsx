@@ -27,18 +27,18 @@ const App = () => {
 
 const addJob=async(newJob)=>{
   //add new job
-  const res=await fetch('/api/jobs',{
+  const response=await fetch('https://gist.githubusercontent.com/aryavasishth/1c6fed37e3108b825a20bcd369ccff54/raw/bafd9d036c1ed43e56b41d587068654e43c9af1c/jobs.json',{
     method:'POST',
     headers:{
       'Content-Type':'application/json'
     },
     body:JSON.stringify(newJob)
   })
-  return;
+  return await response.json()
 }
 
 const deleteJob=async(id)=>{
-  const res=await fetch(`/api/jobs/${id}`,{
+  const response=await fetch(`https://gist.githubusercontent.com/aryavasishth/1c6fed37e3108b825a20bcd369ccff54/raw/bafd9d036c1ed43e56b41d587068654e43c9af1c/jobs.json/${id}`,{
     method:'DELETE',
   })
   return;
@@ -46,14 +46,14 @@ const deleteJob=async(id)=>{
 
 //update job
 const updateJob=async(job)=>{
-  const res=await fetch(`/api/jobs/${job.id}`,{
+  const response=await fetch(`https://gist.githubusercontent.com/aryavasishth/1c6fed37e3108b825a20bcd369ccff54/raw/bafd9d036c1ed43e56b41d587068654e43c9af1c/jobs.json/${job.id}`,{
     method:'PUT',
     headers:{
       'Content-Type':'application/json'
     },
     body:JSON.stringify(job)
   })
-  return;
+  return await response.json();;
 }
 const router=createHashRouter(
   createRoutesFromElements(
