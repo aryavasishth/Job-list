@@ -10,9 +10,7 @@ const JobListings = ({isHome=false}) => {
 
     useEffect(()=>{
       const fetchJobs=async()=>{
-        const apiurl = isHome
-      ? 'https://gist.githubusercontent.com/aryavasishth/1c6fed37e3108b825a20bcd369ccff54/raw/bafd9d036c1ed43e56b41d587068654e43c9af1c/jobs.json?_limit=3'
-      : 'https://gist.githubusercontent.com/aryavasishth/1c6fed37e3108b825a20bcd369ccff54/raw/bafd9d036c1ed43e56b41d587068654e43c9af1c/jobs.json';
+        const apiurl=isHome?'/api/jobs?_limit=3':'/api/jobs';
         try{
         const res=await fetch(apiurl)
         const data=await res.json();
@@ -25,7 +23,7 @@ const JobListings = ({isHome=false}) => {
       }
     }
       fetchJobs();
-    },[isHome]);
+    },[]);
   return (
         <section className="bg-blue-50 px-4 py-10">
       <div className="container-xl lg:container m-auto">
