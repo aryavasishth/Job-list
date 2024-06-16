@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route,createBrowserRouter,createRoutesFromElements,RouterProvider} from 'react-router-dom'
+import {Route,createHashRouter,createRoutesFromElements,RouterProvider} from 'react-router-dom'
 // import Navbar from './components/Navbar'
 // import Hero from './components/Hero'
 // import HomeCards from './components/HomeCards'
@@ -55,7 +55,7 @@ const updateJob=async(job)=>{
   })
   return;
 }
-const router=createBrowserRouter(
+const router=createHashRouter(
   createRoutesFromElements(
     // any routes inside this will use mainlayout
     <Route path='/' element={<MainLayout/>}> 
